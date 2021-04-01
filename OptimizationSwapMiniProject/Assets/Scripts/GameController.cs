@@ -13,8 +13,6 @@ public class GameController : MonoBehaviour
 
     public CinemachineVirtualCameraBase cam;
 
-
-
     [Header("Player Health")]
     public int playerLives;
     public Text LivesUI;
@@ -34,7 +32,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
 
-        playerLives = 3;
+        playerLives = 2;
 
         if (SceneManager.GetSceneByBuildIndex(0).isLoaded)
         {
@@ -56,7 +54,7 @@ public class GameController : MonoBehaviour
 
     void Gameover()
     {
-        if (playerLives <= 0)
+        if (playerLives <= -1)
         {
             SceneManager.LoadScene(0);
         }

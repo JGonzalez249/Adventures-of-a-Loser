@@ -100,7 +100,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Sprite flip is more reliable using rotation than scale for player
+    //--Sprite flip is more reliable using rotation than scale for player
     void SpriteFlip()
     {
         if((xInput < 0 && facingRight) || (xInput > 0 && !facingRight))
@@ -110,17 +110,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Set animation
+    //--Set animation
     void SpriteAnimation()
     {
-        // Set the yVelocity in the animator
+        //--Set the yVelocity in the animator
         anim.SetFloat("yVelocity", rb2d.velocity.y);
 
-        // Set the Speed float in the animator
+        //--Set the Speed float in the animator
         anim.SetFloat("Speed", Mathf.Abs(xInput));
     }
 
-    // Check if player is on slope - Use FixedUpdate
+    //--Check if player is on slope - Use FixedUpdate
     private void SlopeCheck()
     {
         Vector2 checkPos = transform.position - new Vector3(0.0f, colliderSize.y / 2);
@@ -191,7 +191,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Checks if player is on the ground
+    //--Checks if player is on the ground
     // Use FixedUpdate to check several times per frame if isGrounded is true/false
     void GroundCheck()
     {
@@ -211,7 +211,7 @@ public class PlayerController : MonoBehaviour
 
 
         //--This code is makes animations smoother for jump and fall for some reason
-        //--even if it's redundent
+        //even if it's redundent
         isGrounded = false;
         
         /* Checks if the GroundCheckObject is colliding with
@@ -229,13 +229,13 @@ public class PlayerController : MonoBehaviour
 
     void ApplyMovement()
     {
-        //--Need to set initial velocity in order for the character movement to function
+        //--Need to set initial velocity in order for the character movement to function (more than likely need to fix)
         newVelocity.Set(MovementSpeed * xInput, rb2d.velocity.y);
         rb2d.velocity = newVelocity;
 
         //--Set of conditions when player is on slope
         //--applies force to player perp of slope
-        switch (slopeDownConditions)
+        switch (slopeDownConditions) //--Needs further testing to check if it works!
         {
             case 1:
                 if (isGrounded && !isOnSlope)

@@ -12,6 +12,7 @@ public class CameraFollow : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
+
     void LateUpdate()
     {
         //store camera position in varible temp
